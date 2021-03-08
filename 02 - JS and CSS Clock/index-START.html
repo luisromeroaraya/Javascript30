@@ -58,17 +58,29 @@
 
     .hand {
       width: 50%;
-      height: 6px;
+      height: 5px;
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+    }
+
+    .hour-hand {
+      width: 25%;
+      left: 25%;
+    }
+
+    .min-hand {
+      background: yellow;
+    }
+
+    .second-hand {
+      background: red;
     }
 
   </style>
 
-  <script>
-
-
-  </script>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
