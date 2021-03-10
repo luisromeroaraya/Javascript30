@@ -64,10 +64,10 @@
         const [aLast, aFirst] = a.split(", ");
         const [bLast, bFirst] = b.split(", ");
         if (aLast > bLast) {
-            return -1;
+            return 1;
         }
         if (aLast < bLast) {
-            return 1
+            return -1
         }
         return 0;
     });
