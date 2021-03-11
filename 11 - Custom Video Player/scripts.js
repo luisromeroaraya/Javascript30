@@ -5,6 +5,7 @@ const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const sliders = player.querySelectorAll('.player__slider');
+const fullScreenButton = player.querySelector('.fullscreen__button');
 
 function togglePlay() {
     if (video.paused) {
@@ -47,6 +48,16 @@ function scrub(e) {
     video.currentTime = scrubTime;
 }
 
+function fullScreen() {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) { /* Safari */
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE11 */
+      video.msRequestFullscreen();
+    }
+  }
+
 let mousedown = false;
 
 toggle.addEventListener("click", togglePlay);
@@ -60,6 +71,7 @@ progress.addEventListener("click", scrub);
 progress.addEventListener("mousemove", (e) => mousedown && scrub(e));
 progress.addEventListener("mousedown", () => mousedown = true);
 progress.addEventListener("mouseup", () => mousedown = false);
+fullScreenButton.addEventListener("click", fullScreen);
 
 percent = 0;
 updateProgress();
